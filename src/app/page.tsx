@@ -112,10 +112,10 @@ export default function Home() {
         className="text-center p-10 bg-gradient-to-b from-rose-200 to-slate-400 rounded-lg shadow-lg mt-12 w-[80%] mx-auto"
       >
         <p className="text-xl font-semibold text-gray-100 italic">
-          "Cada instante ao seu lado é um presente,  
+          Cada instante ao seu lado é um presente,  
           cada sorriso, um capítulo da nossa história.  
           Te amo mais do que as palavras podem expressar,  
-          e para sempre vou querer te amar…"  
+          e para sempre vou querer te amar…  
         </p>
       </motion.div>
     </div>
