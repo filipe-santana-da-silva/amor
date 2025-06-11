@@ -1,5 +1,5 @@
-import { connectToDatabase } from "@/lib/mongodb";
-import Carta from "@/models/Carta";
+import { connectToDatabase } from "../../../../lib/mongodb";
+import Carta from "../../../../models/Cartas";
 
 export async function DELETE() {
   await connectToDatabase();
