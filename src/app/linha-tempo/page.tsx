@@ -4,40 +4,46 @@ import React from "react";
 
 const eventos = [
   {
-    data: "12 de Junho de 2020",
+    data: "01 de Janeiro de 2025",
+    titulo: "O dia em que eu conheci meu amor!",
+    descricao: "Esse foi de longe um dos dias mais importantes que já tivemos, porque marca um novo comeco, o comeco que o amor da minha vida, apareceu, marca o inicio de uma nova fase. Fase essa que ira durar até que o Senhor venha!",
+    imagem: "/ano-novo.jpg", // Caminho da imagem
+  },
+  {
+    data: "11/01/2025",
     titulo: "Nosso primeiro encontro ❤️",
-    descricao: "Aquele dia especial em que nos conhecemos e tudo começou!",
-    imagem: "/images/encontro.jpg", // Caminho da imagem
+    descricao: "Uma noite mágica cheia de vida, ali eu vi a minha vida ganhando cor, ali eu vi uma mulher que um dia eu levaria ao altar, ela estava tão linda, e eu nunca vou esquecer aquele sorriso cativante, e nem o jeito que você segurou o seu vestido florido, você é uma princesa por completo que me encantou com o seu jeito meigo de ser",
+    imagem: "/primeiro-encontro.jpeg",
   },
   {
-    data: "25 de Dezembro de 2020",
-    titulo: "Primeiro Natal juntos 🎄",
-    descricao: "Uma noite mágica cheia de amor e carinho!",
-    imagem: "/images/natal.jpg",
+    data: "25/01/2025",
+    titulo: "Nosso segundo Date 💌",
+    descricao: "eu mal via a hora de poder te encontrar novamente, e naquele momento eu já estava decidindo como dar um passo a frente na nossa relação, eu queria saber qual era o número do seu dedo, mas não sabia como kkkkk, foi um momento divertido!",
+    imagem: "/2.jpeg",
   },
   {
-    data: "14 de Fevereiro de 2021",
-    titulo: "Dia dos Namorados 💌",
-    descricao: "O dia em que trocamos nossos primeiros presentes românticos!",
-    imagem: "/images/namorados.jpg",
+    data: "22/02/2025",
+    titulo: "O grande dia!",
+    descricao: "Eu estava muito nervoso, mas foi incrivel como tudo aconteceu, foi extraordinário ver os seus olhos cheios de brilho, eu mal podia acreditar que alguém tão especial como você, aparecesse, Deus é maravilhoso em tudo que faz, e eu sou muito grato a Ele por ter me enviado a mais bela de todas as rosas de seu jardim.",
+    imagem: "/aliancas.jpeg",
   },
-  {
-    data: "10 de Maio de 2022",
-    titulo: "Viagem dos sonhos ✈️",
-    descricao: "Exploramos juntos um novo lugar e criamos memórias incríveis!",
-    imagem: "/images/viagem.jpg",
+   {
+    data: "18/04/2025",
+    titulo: "Uma viagem incrível!",
+    descricao: "foi um passeio incrível ao lado da minha nova familia, uma viagem que eu nunca irei esquecer",
+    imagem: "/familia.jpeg",
   },
   {
     data: "Agora...",
     titulo: "Nossa história continua! 💖",
-    descricao: "Cada dia ao seu lado é um novo capítulo especial.",
-    imagem: null, // Sem imagem, mas pode adicionar uma personalizada
+    descricao: "Cada dia ao seu lado é um novo capítulo de uma história que não tem fim.",
+    imagem: '/no.jpeg', // Sem imagem, mas pode adicionar uma personalizada
   },
 ];
 
 export default function TimelinePage() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-pink-100 to-red-200 text-gray-900 p-6">
+    <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-pink-100 to-sky-700 text-gray-900 p-6">
       <h1 className="text-4xl font-bold mb-6 text-red-500">💖 Linha do Tempo do Amor 💌</h1>
 
       <div className="relative w-full max-w-md">

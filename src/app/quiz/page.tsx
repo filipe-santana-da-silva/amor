@@ -4,35 +4,35 @@ import React, { useState } from "react";
 
 const perguntas = [
   {
-    pergunta: "Qual é o símbolo mais associado ao amor?",
-    opcoes: ["Estrela", "Coração", "Lua", "Flor"],
+    pergunta: "Qual é a data do nosso primeiro encontro?",
+    opcoes: ["10/01", "11/01", "02/01", "12/01"],
     resposta: 1,
   },
   {
-    pergunta: "Qual é a flor tradicionalmente dada no Dia dos Namorados?",
-    opcoes: ["Tulipa", "Girassol", "Rosa", "Orquídea"],
+    pergunta: "Qual é a minha cor favorita?",
+    opcoes: ["Verde", "Amarelo", "Azul", "Preto"],
     resposta: 2,
   },
   {
     pergunta:
-      "Qual é o filme romântico que inclui a famosa frase 'Eu sou apenas uma garota, parada na frente de um garoto, pedindo para ele amá-la'?",
+      "qual o significado de akai no ito?",
     opcoes: [
-      "Titanic",
-      "Um Lugar Chamado Notting Hill",
-      "Diário de uma Paixão",
-      "Como Eu Era Antes de Você",
+      "linha vermelha",
+      "conecta as pessoas destinadas a serem amantes ",
+      "ligação",
+      "conexão",
     ],
     resposta: 1,
   },
   {
-    pergunta: "Qual é a data oficial do Dia dos Namorados no Brasil?",
-    opcoes: ["14 de fevereiro", "12 de junho", "25 de dezembro", "7 de setembro"],
-    resposta: 1,
+    pergunta: "Qual é a sua linguagem de amor favorita?",
+    opcoes: ["toque físico", "presentes", "palavras de afirmação", "tempo de qualidade"],
+    resposta: 2,
   },
   {
-    pergunta: "Qual é o nome do deus romano do amor?",
-    opcoes: ["Apolo", "Cupido", "Júpiter", "Marte"],
-    resposta: 1,
+    pergunta: "Qual é a minha linguagem de amor favorita?",
+    opcoes: ["toque físico", "presentes", "palavras de afirmação", "tempo de qualidade"],
+    resposta: 0,
   },
 ];
 

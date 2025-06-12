@@ -72,7 +72,7 @@ export default function Home() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="text-3xl font-bold text-gray-800 text-center"
         >
-          🌟 Momentos Especiais 🌟
+          Momentos únicos ao seu lado!
         </motion.h2>
 
         {/* Imagens alternadas com textos abaixo */}
@@ -112,10 +112,17 @@ export default function Home() {
         className="text-center p-10 bg-gradient-to-b from-rose-200 to-slate-400 rounded-lg shadow-lg mt-12 w-[80%] mx-auto"
       >
         <p className="text-xl font-semibold text-gray-100 italic">
-          Cada instante ao seu lado é um presente,  
-          cada sorriso, um capítulo da nossa história.  
-          Te amo mais do que as palavras podem expressar,  
-          e para sempre vou querer te amar…  
+          Entrelaçados pelo Amor e pelo Destino<br/>
+
+Dizem que existe um fio invisível, vermelho como o amor verdadeiro, que conecta duas almas destinadas a se encontrar. Ele pode se esticar, se enrolar, até parecer desaparecer… mas jamais se rompe.
+
+E eu acredito que esse fio me trouxe até você.
+
+Mas mais do que o destino, o que nos une é o amor — e não qualquer amor, mas aquele que é descrito com perfeição em 1 Coríntios 13:
+
+ O amor é paciente, o amor é bondoso. Não inveja, não se vangloria, não se orgulha. Não maltrata, não procura seus interesses, não se ira facilmente, não guarda rancor. O amor não se alegra com a injustiça, mas se alegra com a verdade. Tudo sofre, tudo crê, tudo espera, tudo suporta.
+
+Esse é o amor que quero viver com você. Um amor que não se apressa, que acolhe, que perdoa. Um amor que não se mede por palavras, mas por gestos, por presença, por fé. Ate que o Senhor venha eu quero poder te dizer com todas as minhas forças que Te Amo!  
         </p>
       </motion.div>
     </div>
