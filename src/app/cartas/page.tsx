@@ -10,7 +10,7 @@ export default function Cartas() {
     const fetchCartas = async () => {
       const response = await fetch("/api/cartas");
       const data = await response.json();
-      console.log("Cartas carregadas:", data); // Verificar se IDs estão vindo corretamente
+      console.log("Cartas carregadas:", data);
       setCartas(data);
     };
 
@@ -54,8 +54,8 @@ export default function Cartas() {
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-slate-50 to-indigo-200 text-gray-900 p-6">
-      <h1 className="text-4xl font-bold mb-6">💌 Cartas para Você 💖</h1>
-      <p className="text-lg mb-6">Mensagens sinceras do meu coração para o seu.</p>
+      <h1 className="text-4xl font-bold mb-6 text-center">💌 Cartas para Você 💖</h1>
+      <p className="text-lg mb-6 text-center">Mensagens sinceras do meu coração para o seu.</p>
 
       {/* Formulário para adicionar cartas */}
       <div className="mb-8 w-full max-w-md">
@@ -75,34 +75,35 @@ export default function Cartas() {
       </div>
 
       {/* Cartas anexadas com botão de excluir */}
-      <div className="relative flex flex-wrap justify-center gap-6 w-full max-w-2xl">
-        {/* Se cartas estiverem vazias, mostra uma mensagem */}
+      <div className="relative flex flex-wrap justify-center gap-4 w-full max-w-[90%] sm:max-w-2xl">
         {cartas.length === 0 ? (
           <p className="text-center text-lg text-gray-600">Nenhuma carta ainda... 💌</p>
         ) : (
           cartas.map((carta, index) => (
-           <div
-  key={index}
-  className="relative bg-white text-gray-900 p-6 rounded-lg shadow-lg w-auto min-w-[250px] max-w-[600px] min-h-[100px] flex flex-col items-center 
-  border-2 border-gray-300 transition-transform transform hover:scale-105 hover:rotate-1"
->
-  {/* Selo postal corretamente posicionado */}
-  <div className="w-full flex justify-end">
-    <div className="w-8 h-8 bg-red-500 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">
-      💌
-    </div>
-  </div>
+            <div
+              key={index}
+              className="relative bg-white text-gray-900 p-4 rounded-lg shadow-lg w-auto min-w-[200px] max-w-[90%] sm:max-w-[600px] min-h-[100px] flex flex-col items-center 
+              border-2 border-gray-300 transition-transform transform hover:scale-105 hover:rotate-1"
+            >
+              {/* Selo postal corretamente posicionado */}
+              <div className="w-full flex justify-end">
+                <div className="w-6 h-6 bg-red-500 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">
+                  💌
+                </div>
+              </div>
 
-  <p className="text-lg font-serif text-center break-words overflow-wrap">{carta.mensagem}</p>
+              <p className="text-lg font-serif text-center break-words overflow-wrap">
+                {carta.mensagem}
+              </p>
 
-  {/* Botão de excluir abaixo do texto */}
-  <button className="mt-3 px-3 py-1 bg-red-500 text-white rounded shadow-md hover:bg-red-600 transition" 
-    onClick={() => excluirCarta(carta.id)}
-  >
-    Excluir ❌
-  </button>
-</div>
-
+              {/* Botão de excluir abaixo do texto */}
+              <button 
+                className="mt-3 px-3 py-1 bg-red-500 text-white rounded shadow-md hover:bg-red-600 transition" 
+                onClick={() => excluirCarta(carta.id)}
+              >
+                Excluir ❌
+              </button>
+            </div>
           ))
         )}
       </div>

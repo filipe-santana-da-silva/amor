@@ -8,17 +8,19 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // Fecha o menu ao clicar fora dele
+  // Fecha o menu ao clicar fora dele, incluindo toque no celular
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
+    function handleClickOutside(event: MouseEvent | TouchEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setMenuOpen(false);
       }
     }
 
     document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside); // Adicionando suporte para mobile
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
     };
   }, []);
 
@@ -28,7 +30,7 @@ export default function Header() {
         <h1 className="text-white text-xl font-bold"></h1>
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="text-white text-3xl focus:outline-none bg-gray-900 p-2 rounded-lg"
+          className="text-white text-3xl focus:outline-none active:ring-2 bg-gray-900 p-2 rounded-lg"
         >
           ☰
         </button>
@@ -40,10 +42,10 @@ export default function Header() {
         initial={{ x: -300 }}
         animate={{ x: menuOpen ? 0 : -300 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="fixed top-0 left-0 h-full w-64 bg-gray-900 text-white p-6 flex flex-col gap-4 shadow-lg z-50"
+        className="fixed top-0 left-0 h-full w-[80%] sm:w-64 bg-gray-900 text-white p-6 flex flex-col gap-4 shadow-lg z-50"
       >
-        <button
-          onClick={() => setMenuOpen(false)}
+        <button 
+          onClick={() => setMenuOpen(false)} 
           className="self-end text-xl"
         >
           ✖
