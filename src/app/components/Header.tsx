@@ -1,11 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link"; // Importando o Link do Next.js
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // Fecha o menu ao clicar fora dele
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div>
@@ -21,6 +36,7 @@ export default function Header() {
 
       {/* Menu lateral animado */}
       <motion.div
+        ref={menuRef}
         initial={{ x: -300 }}
         animate={{ x: menuOpen ? 0 : -300 }}
         transition={{ duration: 0.5, ease: "easeOut" }}

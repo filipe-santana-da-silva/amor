@@ -6,17 +6,16 @@ export default function Cartas() {
   const [mensagem, setMensagem] = useState("");
   const [cartas, setCartas] = useState<{ id: string; mensagem: string }[]>([]);
 
- useEffect(() => {
-  const fetchCartas = async () => {
-    const response = await fetch("/api/cartas");
-    const data = await response.json();
-    console.log("Cartas carregadas:", data); // Verificar se IDs estão vindo corretamente
-    setCartas(data);
-  };
+  useEffect(() => {
+    const fetchCartas = async () => {
+      const response = await fetch("/api/cartas");
+      const data = await response.json();
+      console.log("Cartas carregadas:", data); // Verificar se IDs estão vindo corretamente
+      setCartas(data);
+    };
 
-  fetchCartas();
-}, []);
-
+    fetchCartas();
+  }, []);
 
   const adicionarCarta = async () => {
     if (mensagem.trim()) {
@@ -33,28 +32,25 @@ export default function Cartas() {
   };
 
   const excluirCarta = async (id: string) => {
-  if (!id) {
-    console.error("Erro: ID da carta está indefinido!");
-    return;
-  }
-
-  try {
-    const response = await fetch(`/api/cartas/${id}`, { method: "DELETE" });
-
-    if (!response.ok) {
-      console.error("Erro ao excluir carta:", response.statusText);
+    if (!id) {
+      console.error("Erro: ID da carta está indefinido!");
       return;
     }
 
-    // Atualiza o estado removendo apenas a carta com o ID correspondente
-    setCartas((prevCartas) => prevCartas.filter((carta) => carta.id !== id));
+    try {
+      const response = await fetch(`/api/cartas/${id}`, { method: "DELETE" });
 
-  } catch (error) {
-    console.error("Erro inesperado ao excluir carta:", error);
-  }
-};
+      if (!response.ok) {
+        console.error("Erro ao excluir carta:", response.statusText);
+        return;
+      }
 
+      setCartas((prevCartas) => prevCartas.filter((carta) => carta.id !== id));
 
+    } catch (error) {
+      console.error("Erro inesperado ao excluir carta:", error);
+    }
+  };
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-slate-50 to-indigo-200 text-gray-900 p-6">
@@ -80,32 +76,35 @@ export default function Cartas() {
 
       {/* Cartas anexadas com botão de excluir */}
       <div className="relative flex flex-wrap justify-center gap-6 w-full max-w-2xl">
-       {/* Se cartas estiver vazio, mostra uma mensagem */}
-{cartas.length === 0 ? (
-  <p className="text-center text-lg text-gray-600">Nenhuma carta ainda... 💌</p>
-) : (
-  cartas.map((carta, index) => (
-    <div
-      key={index}
-      className="relative bg-white text-gray-900 p-6 rounded-lg shadow-lg w-64 h-40 flex flex-col items-center 
-      border-2 border-gray-300 transition-transform transform hover:scale-105 hover:rotate-1"
-    >
-      <p className="text-lg font-serif text-center">{carta.mensagem}</p>
-
-      {/* Simulação de um selo postal na carta */}
-      <div className="absolute top-2 right-2 w-8 h-8 bg-red-500 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">
-        💌
-      </div>
-
-      {/* Botão de excluir estilizado */}
-      <button className="absolute bottom-2 right-2 px-3 py-1 bg-red-500 text-white rounded shadow-md hover:bg-red-600 transition" 
-        onClick={() => excluirCarta(carta.id)}
-      >
-        Excluir ❌
-      </button>
+        {/* Se cartas estiverem vazias, mostra uma mensagem */}
+        {cartas.length === 0 ? (
+          <p className="text-center text-lg text-gray-600">Nenhuma carta ainda... 💌</p>
+        ) : (
+          cartas.map((carta, index) => (
+           <div
+  key={index}
+  className="relative bg-white text-gray-900 p-6 rounded-lg shadow-lg w-auto min-w-[250px] max-w-[600px] min-h-[100px] flex flex-col items-center 
+  border-2 border-gray-300 transition-transform transform hover:scale-105 hover:rotate-1"
+>
+  {/* Selo postal corretamente posicionado */}
+  <div className="w-full flex justify-end">
+    <div className="w-8 h-8 bg-red-500 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">
+      💌
     </div>
-  ))
-)}
+  </div>
+
+  <p className="text-lg font-serif text-center break-words overflow-wrap">{carta.mensagem}</p>
+
+  {/* Botão de excluir abaixo do texto */}
+  <button className="mt-3 px-3 py-1 bg-red-500 text-white rounded shadow-md hover:bg-red-600 transition" 
+    onClick={() => excluirCarta(carta.id)}
+  >
+    Excluir ❌
+  </button>
+</div>
+
+          ))
+        )}
       </div>
     </main>
   );
